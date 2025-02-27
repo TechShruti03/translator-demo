@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>English To Marathi Translator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('img/images.jpg'); /* Ensure the path is correct */
+            background-size: cover; /* Ensures the image covers the entire background */
+            background-position: center; /* Centers the background image */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: hsl(0, 93%, 61%);
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            margin-bottom: 20px;
+            outline: none;
+            transition: border 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border: 1px solid #4CAF50;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        h2 {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            font-weight: normal;
+        }
+
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 230, 0.9); /* Added transparency to blend better with the background */
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 500px;
+        }
+
+        /* Media Query for Tablets and Smaller Devices */
+        @media (max-width: 768px) {
+            .container {
+                width: 80%; /* Make the container take up more width on smaller screens */
+                padding: 15px;
+            }
+
+            input[type="text"] {
+                width: 80%; /* Make the input field more responsive */
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            h2 {
+                font-size: 16px;
+            }
+        }
+
+        /* Media Query for Mobile Devices */
+        @media (max-width: 480px) {
+            .container {
+                width: 90%; /* Make the container take up more width on mobile screens */
+                padding: 10px;
+            }
+
+            input[type="text"] {
+                width: 90%; /* Make the input field full width on mobile */
+                font-size: 14px;
+            }
+
+            button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            h2 {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>English To Marathi Translator</h1>
+        <input type="text" id="word" placeholder="Enter the word to translate" />
+        <button onclick="dowork()">Translate</button>
+        <h2 id="translation"></h2>
+    </div>
+
+    <script>
+        const englishToMarathi = {
+            "hi": "",
+            "hello": "",
+            "good": "चांगले ",
+            "bad": " वाईट",
+            "status": "स्थिती ",
+            "good morning": "शुभ सकाळ ",
+            "good afternoon": "शुभ दुपार ",
+            "good night": "शुभ रात्री ",
+            "thank you": "धन्यवाद ",
+            "goal": "ध्येय ",
+            "school": "शाळा ",
+            "book": " पुस्तक",
+            "flower": " फूल",
+            "science": "विज्ञान "
+        };
+
+        function dowork() {
+            const wordElement = document.getElementById("word");
+            const translationElement = document.getElementById("translation");
+            const word  = wordElement.value.toLowerCase();
+            const translation = englishToMarathi[word];
+
+            if (translation) {
+                translationElement.innerText = `${word} in Marathi is ${translation}`;
+            } else {
+                translationElement.innerText = `Translation Not Found for ${word}`;
+            }
+        }
+    </script>
+</body>
+</html>
